@@ -17,9 +17,12 @@ const DB_HOST= process.env.DB_HOST
 mongoose.connect(DB_HOST).then
 (()=>console.log("Mongo Connectd")).catch
 ((error)=>console.log(error));
-
-app.use(cors());
 app.set('trust proxy', 1);
+app.use(cors({
+    origin: 'http://localhost:5173', // Replace with your actual React URL
+    credentials: true, // Allows the browser to send/receive cookies
+    methods: ["GET", "POST", "PUT", "DELETE"],
+}));
 app.use(express.urlencoded({extended:false}))
 app.use(cookieParser());
 app.use(express.json());
