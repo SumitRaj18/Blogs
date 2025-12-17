@@ -18,10 +18,7 @@ mongoose.connect(DB_HOST).then
 (()=>console.log("Mongo Connectd")).catch
 ((error)=>console.log(error));
 
-app.use(cors({
-  origin:'http://localhost:5173',
-  credentials:true
-}));
+app.use(cors());
 app.set('trust proxy', 1);
 app.use(express.urlencoded({extended:false}))
 app.use(cookieParser());

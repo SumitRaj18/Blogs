@@ -32,12 +32,7 @@ const handleUserLogin=async(req,res)=>{
         }
     const token= SetUser(user);
     
-    res.cookie("token",token,{
-        httpOnly: true,    // Prevents JavaScript access (Security)
-    secure: true,      // Required for Render/HTTPS
-    sameSite: 'none',  // Required if your frontend is on a different domain
-    maxAge: 24 * 60 * 60 * 1000 // 24 hours
-    }); 
+    res.cookie("token",token); 
     return res.status(200).json({msg:'Login Successfully',user:user })
 }
 const handleLogout=async(req,res)=>{
