@@ -35,6 +35,10 @@ router.delete('/deleteblog/:id',CheckAuth,DeleteBlog);
 
 router.post('/addcomment/:id',CheckAuth,AddComment);
 router.get('/allcomment/:id',ShowComments);
+// routes/route.js
+router.get('/me', handleUserLoggedIn, (req, res) => {
+    return res.status(200).json({ user: req.user });
+});
 
 
 module.exports=router;
