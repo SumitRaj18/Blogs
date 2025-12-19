@@ -19,7 +19,7 @@ mongoose.connect(DB_HOST).then
 ((error)=>console.log(error));
 app.set('trust proxy', 1);
 app.use(cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:5173', // Replace with your actual React URL
+    origin:  'http://localhost:5174', // Replace with your actual React URL
     credentials: true, // Allows the browser to send/receive cookies
     methods: ["GET", "POST", "PUT", "DELETE"],
 }));
