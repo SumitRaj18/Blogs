@@ -13,13 +13,13 @@ require('dotenv').config();
 
 const PORT= process.env.PORT || 8080;
 const DB_HOST= process.env.DB_HOST
-
+const FRONTEND_URL= process.env.FRONTEND_URL
 mongoose.connect(DB_HOST).then
 (()=>console.log("Mongo Connectd")).catch
 ((error)=>console.log(error));
 app.set('trust proxy', 1);
 app.use(cors({
-    origin:  'http://localhost:5174', // Replace with your actual React URL
+    origin:  FRONTEND_URL, // Replace with your actual React URL
     credentials: true, // Allows the browser to send/receive cookies
     methods: ["GET", "POST", "PUT", "DELETE"],
 }));
