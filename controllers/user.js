@@ -15,7 +15,6 @@ const handleUserSignup=async(req,res)=>{
  if (!user) {
     return res.status(404).json({msg:'User Not Found'})
  }
-  console.log(user)
  return res.status(201).json({msg:"User Created"})
 }
 
